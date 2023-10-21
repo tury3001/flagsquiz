@@ -1,0 +1,34 @@
+{
+  "trivia": [
+    {
+      "flag": "ar",
+      "correctAnswer": "A",
+      "options": [  
+        { "id": "A", "title": "Argentina" },
+        { "id": "B", "title": "Uruguay" },
+        { "id": "C", "title": "Brasil" },
+        { "id": "D", "title": "Paraguay" }
+      ]
+    },
+    {
+      "flag": "uy",
+      "correctAnswer": "C",
+      "options": [  
+        { "id": "A", "title": "Paraguay" },
+        { "id": "B", "title": "Colombia" },
+        { "id": "C", "title": "Uruguay" },
+        { "id": "D", "title": "Chile" }
+      ]
+    },
+    {
+      "flag": "br",
+      "correctAnswer": "D",
+      "options": [  
+        { "id": "A", "title": "Paraguay" },
+        { "id": "B", "title": "Ecuador" },
+        { "id": "C", "title": "Argentina" },
+        { "id": "D", "title": "Brasil" }
+      ]
+    }
+  ]
+}
