@@ -1,10 +1,10 @@
 import { PropTypes } from 'prop-types';
 
-export const Flag = ({ flagImage }) => {
+export const Flag = ({ code }) => {
   return (
     <div className="flex justify-center">
       <img
-        src={ flagImage }
+        src={ `src/assets/flags/${ code }.png` }
         alt="flag"
         className="border border-slate-500 shadow-sm rounded"
       >
@@ -14,5 +14,5 @@ export const Flag = ({ flagImage }) => {
 }
 
 Flag.propTypes = {
-  flagImage: PropTypes.string.isRequired
+  code: PropTypes.string.isRequired
 }
