@@ -1,24 +1,24 @@
 import { useEffect, useState } from 'react';
 import { Flag } from './components/Flag';
 import { Score } from './components/Score';
-import flagArgentina from './assets/flags/ar.png';
 import Timer from './components/Timer';
 import { Trivia } from './components/Trivia';
-// import { getQuestions } from './api/flagsAPI';
-import * as triviaData from './data/trivia-data.json';
+import { getQuestions } from './api/fetch-flags';
+import { getTrivia } from './model/triviaCreator';
+
 
 export const FlagsQuiz = () => {
 
   useEffect(() => {
-    console.log('Fetch questions');
-    console.log(triviaData.trivia);
-    console.log(flagArgentina);
-    setOptions(triviaData.trivia[questionNumber].options)
+    console.log(getTrivia('América', 10));
+    // setCurrentQuestion(questions[questionNumber]);
+    // setOptions(questions[questionNumber].options);
   }, []) 
   
   const [attempts, setAttempts] = useState(0);
   const [hits, setHits] = useState(0);
-  const [questionNumber, setQuestionNumber] = useState(2);
+  const [questionNumber, setQuestionNumber] = useState(7);
+  const [currentQuestion, setCurrentQuestion] = useState({});
   const [options, setOptions] = useState([]);
 
   return (
@@ -27,7 +27,7 @@ export const FlagsQuiz = () => {
       <h1 className="text-4xl flex justify-center">Flags Quiz</h1>        
         <div className="w-1/2 mx-auto mt-10">
           <Timer />        
-          <Flag code={ triviaData.trivia[questionNumber].flag }></Flag>
+          <Flag code={ currentQuestion.code }></Flag>
           <Trivia options={ options } />
           <Score hits={ hits } attempts={ questionNumber - 1 } />
         </div>
