@@ -1,6 +1,6 @@
 import * as countriesData from '../data/countries.json';
 
-export const getQuestions = ( region ) => {
+export const getCountries = ( region ) => {
 
   const { countries } = countriesData;
 

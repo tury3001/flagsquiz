@@ -3,14 +3,15 @@ import { Flag } from './components/Flag';
 import { Score } from './components/Score';
 import Timer from './components/Timer';
 import { Trivia } from './components/Trivia';
-import { getQuestions } from './api/fetch-flags';
-import { getTrivia } from './model/triviaCreator';
+import { TriviaCreator } from './model/triviaCreator';
 
 
 export const FlagsQuiz = () => {
 
   useEffect(() => {
-    console.log(getTrivia('América', 10));
+    const triviaCreator = new TriviaCreator('América', 10);
+    triviaCreator.getTrivia();
+
     // setCurrentQuestion(questions[questionNumber]);
     // setOptions(questions[questionNumber].options);
   }, []) 
