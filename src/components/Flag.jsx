@@ -1,6 +1,6 @@
 import { PropTypes } from 'prop-types';
 
-export const Flag = ({ code }) => {
+export const Flag = ({ code = '' }) => {
   return (
     <div className="flex justify-center">
       <img

@@ -16,13 +16,16 @@ export class TriviaCreator {
       ...this.getRandomCountries(3)
     ].map(country => country.name);
 
-    const shuffledOptions = shuffleArray(options);    
+    const shuffledOptions = shuffleArray(options);
+    const formattedOptions = shuffledOptions.map( (option, i) => {
+      return { id: String.fromCharCode('A'.charCodeAt() + i), text: option }
+    })
     
     const trivia = {
       flag: randomCountry.code,
       correctAnswer: randomCountry.name,
-      options: shuffledOptions
-    }
+      options: formattedOptions
+    }    
 
     return trivia;
   }

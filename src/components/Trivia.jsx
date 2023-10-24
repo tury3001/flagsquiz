@@ -6,11 +6,11 @@ export const Trivia = ({ options = [] }) => {
     <div>
       <ul className="mt-10">
         {
-        options.map( ({ id, title }) => (
+        options.map( ({ id, text }) => (
           <TriviaOption
             key={ id }
             id={ id }
-            title={ title }
+            text={ text }
           />
         ))
         }

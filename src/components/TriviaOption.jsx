@@ -1,6 +1,6 @@
 import { PropTypes } from 'prop-types';
 
-export const TriviaOption = ({ id, title }) => {
+export const TriviaOption = ({ id, text }) => {
   return (
     <div>
       <li className="bg-white rounded mb-4 flex cursor-pointer shadow-sm hover:bg-slate-100">
@@ -8,7 +8,7 @@ export const TriviaOption = ({ id, title }) => {
           { id }
         </div>
         <div className="text-2xl py-4">
-          { title }
+          { text }
         </div> 
       </li>
     </div>
@@ -17,5 +17,5 @@ export const TriviaOption = ({ id, title }) => {
 
 TriviaOption.propTypes = {
   id: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired
+  text: PropTypes.string.isRequired
 }
