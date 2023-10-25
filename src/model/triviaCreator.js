@@ -4,11 +4,28 @@ import { shuffleArray } from '../lib/shuffleArray';
 export class TriviaCreator {
  
   constructor(region, qQuestions) {
-    this.countries = getCountries(region);
+    this.region = region;
     this.qQuestions = qQuestions;
   }
 
   getTrivia() {
+    let trivia = [];
+    for (let i = 0; i < this.qQuestions; i++) {
+      this.countries = getCountries(this.region);  
+      this.removeCountries(trivia.map( t => t.correctAnswer));
+      trivia.push(this.getQuestion());
+    }
+
+    return trivia;
+  }
+
+  removeCountries(countries) {
+    for (const country of countries) {      
+      this.countries = this.countries.filter( ({ name }) => name !== country);
+    }
+  }
+
+  getQuestion() {
     const randomCountry = this.getRandomCountry();
 
     const options = [
@@ -20,16 +37,13 @@ export class TriviaCreator {
     const formattedOptions = shuffledOptions.map( (option, i) => {
       return { id: String.fromCharCode('A'.charCodeAt() + i), text: option }
     })
-    
-    const trivia = {
+
+    return {
       flag: randomCountry.code,
       correctAnswer: randomCountry.name,
       options: formattedOptions
-    }    
-
-    return trivia;
+    }
   }
-
 
   getRandomCountry() {
     return this.countries.splice(this.getRandomPosition(), 1)[0];

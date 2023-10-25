@@ -8,10 +8,9 @@ import { TriviaCreator } from './model/triviaCreator';
 export const FlagsQuiz = () => {
 
   useEffect(() => {
-    const triviaCreator = new TriviaCreator('Europa', 10);
+    const triviaCreator = new TriviaCreator('América', 10);
     const trivia = triviaCreator.getTrivia();
-    console.log(trivia);
-    setCurrentQuestion(trivia);
+    setCurrentQuestion(trivia[questionNumber]);
   }, []) 
   
   const [attempts, setAttempts] = useState(0);
