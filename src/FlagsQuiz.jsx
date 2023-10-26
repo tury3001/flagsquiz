@@ -8,17 +8,14 @@ import { TriviaContext } from './context';
 
 export const FlagsQuiz = () => {
 
-  const { hits, questionNumber, setCorrectAnswer } = useContext(TriviaContext);
+  const { hits, questionNumber, setCorrectAnswer, options, setTrivia, flag } = useContext(TriviaContext);
 
   useEffect(() => {
     const triviaCreator = new TriviaCreator('América', 10);
     const trivia = triviaCreator.getTrivia();
-    setCurrentQuestion(trivia[questionNumber]);
+    setTrivia(trivia[questionNumber].flag, trivia[questionNumber].options);
     setCorrectAnswer(trivia[questionNumber].correctAnswer)
   }, [])
-  
-
-  const [currentQuestion, setCurrentQuestion] = useState({ flag: '', options: [] });
 
   return (
     <div className="container mx-auto bg-fqwhite">
@@ -29,8 +26,8 @@ export const FlagsQuiz = () => {
             <h3 className="uppercase text-xl">Pregunta { questionNumber }</h3>    
           </div>
           <Timer />
-          <Flag code={ currentQuestion.flag }></Flag>
-          <Trivia options={ currentQuestion.options } />
+          <Flag code={ flag }></Flag>
+          <Trivia options={ options } />
           <Score hits={ hits } />
         </div>
       </div>

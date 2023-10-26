@@ -35,7 +35,7 @@ export class TriviaCreator {
 
     const shuffledOptions = shuffleArray(options);
     const formattedOptions = shuffledOptions.map( (option, i) => {
-      return { id: String.fromCharCode('A'.charCodeAt() + i), text: option }
+      return { id: String.fromCharCode('A'.charCodeAt() + i), text: option, correct: false, fail: false }
     })
 
     return {
