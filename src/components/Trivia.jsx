@@ -1,7 +1,7 @@
 import { PropTypes } from 'prop-types';
 import { TriviaOption } from './TriviaOption';
 
-export const Trivia = ({ options = [] }) => {
+export const Trivia = ({ options = [], disableInput = false }) => {
   return (
     <div>
       <ul className="mt-10">
@@ -13,6 +13,7 @@ export const Trivia = ({ options = [] }) => {
             text={ text }
             correct={ correct }
             fail={ fail }
+            disableInput={ disableInput }
           />
         ))
         }
@@ -22,5 +23,6 @@ export const Trivia = ({ options = [] }) => {
 }
 
 Trivia.propTypes = {
-  options: PropTypes.array.isRequired
+  options: PropTypes.array.isRequired,
+  disableInput: PropTypes.bool
 }

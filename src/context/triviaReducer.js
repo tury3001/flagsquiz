@@ -13,7 +13,31 @@ export const triviaReducer = (state = {}, action) => {
 
     case types.setSuccess: {
       const newOptions = state.options.map( (option, i) => i === action.payload.correctIndex ? { ...option, correct: true } : option );
-      return { ...state, success: true, fail: false,  disableOptions: true, options: newOptions  }
+      return {
+        ...state,
+        success: true,
+        fail: false, 
+        disableOptions: true,
+        options: newOptions
+      }
+    }
+
+    case types.increaseQuestionNumber: {
+      return {
+        ...state,
+        questionNumber: state.questionNumber + 1
+      }
+    }
+
+    case types.loadNextQuestion: {
+      return {
+        ...state,
+        success: false,
+        fail: false,
+        disableOptions: false,
+        options: action.payload.options,
+        flag: action.payload.flag
+      }
     }
 
     case types.setFail: {
@@ -26,11 +50,13 @@ export const triviaReducer = (state = {}, action) => {
           return option
       });
       
-      return { ...state, success: false, fail: true, disableOptions: true, options: newOptions }
-    }
-
-    case types.setTrivia: {
-      return { ...state, options: action.payload.options, flag: action.payload.flag }
+      return {
+        ...state,
+        success: false,
+        fail: true,
+        disableOptions: true,
+        options: newOptions
+      }
     }
 
     default: {

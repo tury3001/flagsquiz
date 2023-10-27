@@ -5,12 +5,13 @@ import { FaCheck } from "react-icons/fa";
 import { FaTimes } from "react-icons/fa";
 
 
-export const TriviaOption = ({ id, text, correct, fail }) => {
+export const TriviaOption = ({ id, text, correct, fail, disableInput }) => {
 
   const { sendAnswer } = useContext(TriviaContext);
 
   const selectAnswer = () => {
-    sendAnswer(text);
+    if (! disableInput)
+      sendAnswer(text);
   }
 
   const getColors = () => {

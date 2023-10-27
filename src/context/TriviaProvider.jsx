@@ -22,18 +22,6 @@ export const TriviaProvider = ({ children }) => {
   const [triviaState, dispatch] = useReducer(triviaReducer, {}, init)
   const { correctAnswer, options } = triviaState;
 
-  const setTrivia = ( flag, options ) => {
-
-    const action = {
-      type: types.setTrivia,
-      payload: {
-        flag, options
-      }
-    }
-
-    dispatch(action);
-  }
-
   const sendAnswer = ( answer ) => {
 
     const correctIndex = options.reduce( (ac, e, i) => e.text === correctAnswer ? i : ac, {});
@@ -60,6 +48,13 @@ export const TriviaProvider = ({ children }) => {
       dispatch(action2);
     }
   }
+  const increaseQuestionNumber = () => {
+    const action = {
+      type: types.increaseQuestionNumber
+    }
+
+    dispatch(action);
+  }
 
   const setCorrectAnswer = ( answer ) => {
     const action = {
@@ -72,12 +67,22 @@ export const TriviaProvider = ({ children }) => {
     dispatch(action);
   }
 
+  const loadNextQuestion = (flag, options) => {
+    const action = {
+      type: types.loadNextQuestion,
+      payload: { flag, options }
+    }
+
+    dispatch(action);
+  } 
+
   return (
     <TriviaContext.Provider value={{
       ...triviaState,
       sendAnswer,
       setCorrectAnswer,
-      setTrivia      
+      loadNextQuestion,
+      increaseQuestionNumber
     }}>
       { children }
     </TriviaContext.Provider>

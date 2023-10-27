@@ -3,5 +3,6 @@ export const types = {
   setCorrectAnswer: '[Trivia] Set Answer',
   setSuccess: '[Trivia] Set Success',
   setFail: '[Trivia] Set Fail',
-  setTrivia: '[Trivia] Set Trivia',
+  loadNextQuestion: '[Trivia] Load Next Question',
+  increaseQuestionNumber: '[Trivia] Increase Question Number',
 }

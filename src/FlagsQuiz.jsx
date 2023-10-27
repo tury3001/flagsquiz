@@ -6,16 +6,30 @@ import { Trivia } from './components/Trivia';
 import { TriviaCreator } from './model/triviaCreator';
 import { TriviaContext } from './context';
 
+const triviaCreator = new TriviaCreator('América', 10);
+const trivia = triviaCreator.getTrivia();
+
 export const FlagsQuiz = () => {
 
-  const { hits, questionNumber, setCorrectAnswer, options, setTrivia, flag } = useContext(TriviaContext);
+  const {
+    hits, questionNumber, setCorrectAnswer, options,
+    increaseQuestionNumber, flag, disableOptions, loadNextQuestion } = useContext(TriviaContext);
 
   useEffect(() => {
-    const triviaCreator = new TriviaCreator('América', 10);
-    const trivia = triviaCreator.getTrivia();
-    setTrivia(trivia[questionNumber].flag, trivia[questionNumber].options);
-    setCorrectAnswer(trivia[questionNumber].correctAnswer)
-  }, [])
+    loadNextQuestion(trivia[questionNumber-1].flag, trivia[questionNumber-1].options);
+    setCorrectAnswer(trivia[questionNumber-1].correctAnswer);
+  }, []);
+
+  useEffect(() => {
+    loadNextQuestion(trivia[questionNumber-1].flag, trivia[questionNumber-1].options);
+    setCorrectAnswer(trivia[questionNumber-1].correctAnswer);
+  }, [ questionNumber ]);
+
+  const next = () => {
+    increaseQuestionNumber();
+    
+    
+  }
 
   return (
     <div className="container mx-auto bg-fqwhite">
@@ -27,8 +41,15 @@ export const FlagsQuiz = () => {
           </div>
           <Timer />
           <Flag code={ flag }></Flag>
-          <Trivia options={ options } />
+          <Trivia options={ options } disableInput={ disableOptions }/>
           <Score hits={ hits } />
+          <div className="mt-5 flex justify-center">
+            <button
+              disabled={ questionNumber >= 10 }
+              onClick={ next }
+              className="btn bg-sky-600 text-white px-4 py-2 rounded"
+            >Siguiente</button>
+          </div>
         </div>
       </div>
     </div>
