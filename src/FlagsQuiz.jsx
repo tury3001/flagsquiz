@@ -1,12 +1,12 @@
 import { useContext, useEffect } from 'react';
 import { Flag } from './components/Flag';
 import { Score } from './components/Score';
-import Timer from './components/Timer';
+import { Timer } from './components/Timer';
 import { Trivia } from './components/Trivia';
 import { TriviaCreator } from './model/triviaCreator';
 import { TriviaContext } from './context';
 
-const triviaCreator = new TriviaCreator('América', 10);
+const triviaCreator = new TriviaCreator('África', 10);
 const trivia = triviaCreator.getTrivia();
 
 export const FlagsQuiz = () => {
@@ -23,12 +23,11 @@ export const FlagsQuiz = () => {
   useEffect(() => {
     loadNextQuestion(trivia[questionNumber-1].flag, trivia[questionNumber-1].options);
     setCorrectAnswer(trivia[questionNumber-1].correctAnswer);
+
   }, [ questionNumber ]);
 
   const next = () => {
     increaseQuestionNumber();
-    
-    
   }
 
   return (
@@ -37,9 +36,8 @@ export const FlagsQuiz = () => {
       <h1 className="text-4xl flex justify-center">Flags Quiz</h1>     
         <div className="w-1/2 mx-auto mt-10">
           <div className="flex justify-center">
-            <h3 className="uppercase text-xl">Pregunta { questionNumber }</h3>    
+            <h3 className="uppercase text-xl mb-10">Pregunta { questionNumber }</h3>    
           </div>
-          <Timer />
           <Flag code={ flag }></Flag>
           <Trivia options={ options } disableInput={ disableOptions }/>
           <Score hits={ hits } />
@@ -50,6 +48,7 @@ export const FlagsQuiz = () => {
               className="btn bg-sky-600 text-white px-4 py-2 rounded"
             >Siguiente</button>
           </div>
+          <Timer />
         </div>
       </div>
     </div>
