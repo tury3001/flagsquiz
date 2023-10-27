@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect } from 'react';
 import { Flag } from './components/Flag';
 import { Score } from './components/Score';
 import Timer from './components/Timer';

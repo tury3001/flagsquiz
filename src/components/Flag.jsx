@@ -1,10 +1,11 @@
 import { PropTypes } from 'prop-types';
 
 export const Flag = ({ code = '' }) => {
+
   return (
     <div className="flex justify-center">
       <img
-        src={ `src/assets/flags/${ code }.png` }
+        src={ `src/assets/flags/${ code.toLowerCase() }.png` } 
         alt="flag"
         className="border border-slate-500 shadow-sm rounded"
       >
