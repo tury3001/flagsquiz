@@ -1,14 +1,20 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { useTimer } from "../hooks/useTimer";
 
 export const Timer = () => {
 
-  const [ percentage, setPercentage ] = useState(100);
+  const countdownFinish = () => {
+    
+  }
+
+  const { percentage, startTimer, stopTimer }  = useTimer({
+    initialPercentage: 100,
+    countdownFinish
+  });
 
   useEffect( () => {
-    const timer = setInterval( () => {
-      console.log('ciclando');
-      setPercentage( percentage => percentage--)
-    }, 1000);
+    console.log('disparando el inicio del timer');
+    startTimer();
   }, []);
 
   return (
