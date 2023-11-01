@@ -14,8 +14,8 @@ export const FlagsQuiz = () => {
 
   const {
     hits, questionNumber, setCorrectAnswer, options,
-    increaseQuestionNumber, optionsRevelead, flag, disableOptions, optionsDisabled, loadNextQuestion,
-    revealSolution, isLoading } = useContext(TriviaContext);
+    increaseQuestionNumber, flag, disableOptions, optionsDisabled, loadNextQuestion,
+    revealSolution, isLoading, isQuestionFinished } = useContext(TriviaContext);
 
   useEffect(() => {
     loadNextQuestion(trivia[questionNumber-1].flag, trivia[questionNumber-1].options);
@@ -25,14 +25,15 @@ export const FlagsQuiz = () => {
   useEffect(() => {
     loadNextQuestion(trivia[questionNumber-1].flag, trivia[questionNumber-1].options);
     setCorrectAnswer(trivia[questionNumber-1].correctAnswer);
-
   }, [ questionNumber ]);
 
   useEffect(() => {
+    console.log('cambio de isQuestionFinished')
     setTimeout( () => increaseQuestionNumber(), 5000)
-  }, [ optionsRevelead ]);
+  }, [ isQuestionFinished ]);
 
   const onFinishTimer = () => {
+    console.log('Se termino el tiempo');
     disableOptions();
     setTimeout( () => revealSolution(), 2000);
   }

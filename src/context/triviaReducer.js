@@ -18,14 +18,14 @@ export const triviaReducer = (state = {}, action) => {
         success: true,
         fail: false, 
         optionsDisabled: true,
-        options: newOptions
+        options: newOptions,
+        isQuestionFinished: true
       }
     }
 
     case types.increaseQuestionNumber: {
       return {
         ...state,
-        optionsRevelead: false,
         questionNumber: state.questionNumber + 1
       }
     }
@@ -35,9 +35,11 @@ export const triviaReducer = (state = {}, action) => {
         ...state,
         success: false,
         fail: false,
+        optionsRevelead: false,
         optionsDisabled: false,
         options: action.payload.options,
-        flag: action.payload.flag
+        flag: action.payload.flag,
+        isQuestionFinished: false
       }
     }
 
@@ -51,13 +53,13 @@ export const triviaReducer = (state = {}, action) => {
           return option
       });
       
-      
       return {
         ...state,
         success: false,
         fail: true,
         disableOptions: true,
-        options: newOptions
+        options: newOptions,
+        isQuestionFinished: true
       }
     }
 
@@ -75,7 +77,8 @@ export const triviaReducer = (state = {}, action) => {
         fail: true,
         optionsDisabled: true,
         optionsRevelead: true,
-        options: newOptions
+        options: newOptions,
+        isQuestionFinished: true
       }
     }
 

@@ -15,7 +15,8 @@ const init = () => {
     optionsDisabled: false,
     options: [],
     optionsRevelead: false,
-    isLoading: false
+    isLoading: false,
+    isQuestionFinished: false,
   }
 }
 
