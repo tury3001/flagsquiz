@@ -1,28 +1,14 @@
-import { PropTypes } from 'prop-types';
-import { TriviaOption } from './TriviaOption';
+import { Flag } from "./Flag"
+import { TriviaOptions } from "./TriviaOptions"
 
-export const Trivia = ({ options = [], disableInput = false }) => {
+export const Trivia = ({ questionNumber, options, optionsDisabled, flag }) => {
   return (
-    <div>
-      <ul className="mt-10">
-        {
-        options.map( ({ id, text, correct, fail }) => (
-          <TriviaOption
-            key={ id }
-            id={ id }
-            text={ text }
-            correct={ correct }
-            fail={ fail }
-            disableInput={ disableInput }
-          />
-        ))
-        }
-      </ul>
-    </div>
+    <>
+      <div className="flex justify-center">
+        <h3 className="uppercase text-xl mb-10">Pregunta { questionNumber }</h3>
+      </div>
+      <Flag code={ flag }></Flag>
+      <TriviaOptions options={ options } disableInput={ optionsDisabled }/>
+    </>
   )
-}
-
-Trivia.propTypes = {
-  options: PropTypes.array.isRequired,
-  disableInput: PropTypes.bool
 }

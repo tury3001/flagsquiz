@@ -5,4 +5,6 @@ export const types = {
   setFail: '[Trivia] Set Fail',
   loadNextQuestion: '[Trivia] Load Next Question',
   increaseQuestionNumber: '[Trivia] Increase Question Number',
+  revealSolution: '[Trivia] Reveal Solution',
+  disableOptions: '[Trivia] Disable options'
 }

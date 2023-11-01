@@ -2,8 +2,6 @@ import { useEffect, useRef, useState } from "react"
 
 export const useTimer = ({ initialPercentage, countdownFinish }) => {
 
-  console.log('Initial percentage: ' + initialPercentage);
-
   const currentTimer = useRef();
   const [ percentage, setPercentage ] = useState(initialPercentage);
 
@@ -14,7 +12,6 @@ export const useTimer = ({ initialPercentage, countdownFinish }) => {
     }
 
     currentTimer.current = setTimeout( () => {
-      console.log('Ciclando...');
       setPercentage( (percentage) => percentage - 10)
     }, 1000)    
 

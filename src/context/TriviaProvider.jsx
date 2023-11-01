@@ -12,14 +12,16 @@ const init = () => {
     answerOk: false,
     success: false,
     fail: false,
-    disableOptions: false,
-    options: []
+    optionsDisabled: false,
+    options: [],
+    optionsRevelead: false,
+    isLoading: false
   }
 }
 
 export const TriviaProvider = ({ children }) => {
 
-  const [triviaState, dispatch] = useReducer(triviaReducer, {}, init)
+const [triviaState, dispatch] = useReducer(triviaReducer, {}, init)
   const { correctAnswer, options } = triviaState;
 
   const sendAnswer = ( answer ) => {
@@ -74,7 +76,27 @@ export const TriviaProvider = ({ children }) => {
     }
 
     dispatch(action);
-  } 
+  }
+
+  const disableOptions = () => {
+    const action = {
+      type: types.disableOptions
+    }
+
+    dispatch(action);
+  }
+
+  const revealSolution = () => {
+
+    const correctIndex = options.reduce( (ac, e, i) => e.text === correctAnswer ? i : ac, {});
+
+    const action = {
+      type: types.revealSolution,
+      payload: { correctIndex }
+    }
+
+    dispatch(action);
+  }
 
   return (
     <TriviaContext.Provider value={{
@@ -82,7 +104,9 @@ export const TriviaProvider = ({ children }) => {
       sendAnswer,
       setCorrectAnswer,
       loadNextQuestion,
-      increaseQuestionNumber
+      increaseQuestionNumber,
+      revealSolution,
+      disableOptions
     }}>
       { children }
     </TriviaContext.Provider>

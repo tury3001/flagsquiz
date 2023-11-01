@@ -1,10 +1,11 @@
 import { useEffect } from "react";
 import { useTimer } from "../hooks/useTimer";
+import { PropTypes } from "prop-types";
 
-export const Timer = () => {
+export const Timer = ({ onFinish, timerWatch }) => {
 
   const countdownFinish = () => {
-    
+    onFinish();
   }
 
   const { percentage, startTimer, stopTimer }  = useTimer({
@@ -13,9 +14,8 @@ export const Timer = () => {
   });
 
   useEffect( () => {
-    console.log('disparando el inicio del timer');
     startTimer();
-  }, []);
+  }, [ timerWatch ]);
 
   return (
     <div className="text-2xl flex justify-center mt-10 mb-10">
@@ -24,4 +24,8 @@ export const Timer = () => {
       </div>
     </div>
   )
+}
+
+Timer.propTypes = {
+  onFinish: PropTypes.func
 }
