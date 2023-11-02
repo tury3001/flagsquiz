@@ -6,6 +6,7 @@ import { TriviaCreator } from './model/triviaCreator';
 import { TriviaContext } from './context';
 import { Loading } from './ui/Loading';
 import { Trivia } from './components/Trivia';
+import { FlagQuizMenu } from "./components/FlagQuizMenu";
 
 const triviaCreator = new TriviaCreator('África', 10);
 const trivia = triviaCreator.getTrivia();
@@ -39,10 +40,11 @@ export const FlagsQuiz = () => {
   }
 
   return (
-    <div className="container mx-auto bg-fqwhite">
-      <div className="h-screen p-8">
-      <h1 className="text-4xl flex justify-center">Flags Quiz</h1>      
-        <div className="w-1/2 mx-auto mt-10">
+    <div className="container mx-auto w-[600px] bg-fqwhite">
+      <div className="h-screen p-8 border border-slate-400 mt-10">
+      {/* <h1 className="text-4xl flex justify-center">Flags Quiz</h1> */}
+      {/* <FlagQuizMenu /> */}
+        <div className="mx-auto mt-10">
           <Score hits={ hits } />
           {
             isLoading
