@@ -29,8 +29,10 @@ export const FlagsQuiz = () => {
   }, [ questionNumber ]);
 
   useEffect(() => {
-    console.log('cambio de isQuestionFinished')
-    setTimeout( () => increaseQuestionNumber(), 5000)
+    if (isQuestionFinished) {
+      console.log('cambio de isQuestionFinished')
+      setTimeout( () => increaseQuestionNumber(), 5000)
+    }
   }, [ isQuestionFinished ]);
 
   const onFinishTimer = () => {
