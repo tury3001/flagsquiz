@@ -12,8 +12,8 @@ export const useTimer = ({ initialPercentage, countdownFinish }) => {
     }
 
     currentTimer.current = setTimeout( () => {
-      setPercentage( (percentage) => percentage - 10)
-    }, 1000)    
+      setPercentage( (percentage) => percentage - 0.25)
+    }, 25)    
 
     return () => clearTimeout(currentTimer.current);
 
@@ -23,5 +23,9 @@ export const useTimer = ({ initialPercentage, countdownFinish }) => {
     setPercentage(100);
   }
 
-  return { percentage, startTimer }
+  const stopTimer = () => {
+    clearTimeout(currentTimer.current);
+  }
+
+  return { percentage, startTimer, stopTimer }
 }

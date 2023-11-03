@@ -5,10 +5,11 @@ import { types } from "../types/types"
 
 const init = () => {
   return {
+    userAnswer: '',
     flag: '',
     correctAnswer: '',
     questionNumber: 1,
-    hits: 0,
+    score: 0,
     answerOk: false,
     success: false,
     fail: false,
@@ -17,6 +18,9 @@ const init = () => {
     optionsRevelead: false,
     isLoading: false,
     isQuestionFinished: false,
+    isSummary: false,
+    isGame: false,
+    totalQuestions: 10
   }
 }
 
@@ -24,6 +28,14 @@ export const TriviaProvider = ({ children }) => {
 
 const [triviaState, dispatch] = useReducer(triviaReducer, {}, init)
   const { correctAnswer, options } = triviaState;
+
+  const beginTrivia = () => {
+    const action = {
+      type: types.beginTrivia
+    }
+
+    dispatch(action);
+  }
 
   const sendAnswer = ( answer ) => {
 
@@ -34,7 +46,7 @@ const [triviaState, dispatch] = useReducer(triviaReducer, {}, init)
       const action2 = {
         type: types.setSuccess,
         payload: {
-          correctIndex
+          correctIndex, answer
         }
       }
       dispatch(action2);
@@ -45,7 +57,7 @@ const [triviaState, dispatch] = useReducer(triviaReducer, {}, init)
       const action2 = {
         type: types.setFail,
         payload: {
-          correctIndex, incorrectIndex
+          correctIndex, incorrectIndex, answer
         }
       }
       dispatch(action2);
@@ -99,15 +111,34 @@ const [triviaState, dispatch] = useReducer(triviaReducer, {}, init)
     dispatch(action);
   }
 
+  const setGameOver = () => {
+    const action = {
+      type: types.setGameOver
+    }
+
+    dispatch(action);
+  }
+
+  const setRetry = () => {
+    const action = {
+      type: types.setRetry
+    }
+
+    dispatch(action);
+  }
+
   return (
     <TriviaContext.Provider value={{
       ...triviaState,
+      beginTrivia,
       sendAnswer,
       setCorrectAnswer,
       loadNextQuestion,
       increaseQuestionNumber,
       revealSolution,
-      disableOptions
+      disableOptions,
+      setGameOver,
+      setRetry
     }}>
       { children }
     </TriviaContext.Provider>

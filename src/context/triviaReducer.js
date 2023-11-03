@@ -3,23 +3,25 @@ import { types } from "../types/types";
 export const triviaReducer = (state = {}, action) => {
 
   switch (action.type) {
-    case types.sendAnswer: {
-      return { ...state, userAnswer: action.payload.answer }
-    }
-
     case types.setCorrectAnswer: {
       return { ...state, correctAnswer: action.payload.answer }
+    }
+
+    case types.beginTrivia: {
+      return { ...state, isGame: true }
     }
 
     case types.setSuccess: {
       const newOptions = state.options.map( (option, i) => i === action.payload.correctIndex ? { ...option, correct: true } : option );
       return {
         ...state,
+        userAnswer: action.payload.answer,
         success: true,
         fail: false, 
         optionsDisabled: true,
         options: newOptions,
-        isQuestionFinished: true
+        isQuestionFinished: true,
+        score: state.score + 1
       }
     }
 
@@ -55,6 +57,7 @@ export const triviaReducer = (state = {}, action) => {
       
       return {
         ...state,
+        userAnswer: action.payload.answer,
         success: false,
         fail: true,
         disableOptions: true,
@@ -86,6 +89,26 @@ export const triviaReducer = (state = {}, action) => {
       return {
         ...state,
         optionsDisabled: true
+      }
+    }
+
+    case types.setGameOver: {
+      return {
+        ...state,
+        isGame: false,
+        isSummary: true
+      }
+    }
+
+    case types.setRetry: {
+      return {
+        ...state,
+        isGame: true,
+        isSummary: false,
+        isQuestionFinished: false,
+        questionNumber: 1,
+        score: 0,
+        userAnswer: ''
       }
     }
 

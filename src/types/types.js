@@ -6,5 +6,8 @@ export const types = {
   loadNextQuestion: '[Trivia] Load Next Question',
   increaseQuestionNumber: '[Trivia] Increase Question Number',
   revealSolution: '[Trivia] Reveal Solution',
-  disableOptions: '[Trivia] Disable options'
+  disableOptions: '[Trivia] Disable options',
+  setGameOver: '[Trivia] Set Game Over',
+  beginTrivia: '[Trivia] Begin Trivia',
+  setRetry: '[Trivia] Set Retry',
 }
