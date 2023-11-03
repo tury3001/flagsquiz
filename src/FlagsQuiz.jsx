@@ -41,10 +41,12 @@ export const FlagsQuiz = () => {
 
   return (
     <div className="container mx-auto w-[600px] bg-fqwhite">
-      <div className="h-screen p-8 border border-slate-400 mt-10">
-      {/* <h1 className="text-4xl flex justify-center">Flags Quiz</h1> */}
+      <div className="border rounded-md border-slate-300 shadow-md mt-3 mb-5">
+      <header className="bg-zinc-700 py-3 text-white">
+        <h1 className="text-2xl flex justify-center">Trivia de Banderas</h1>
+      </header>
       {/* <FlagQuizMenu /> */}
-        <div className="mx-auto mt-10">
+        <div className="mx-auto p-8">
           <Score hits={ hits } />
           {
             isLoading
