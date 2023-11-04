@@ -83,9 +83,9 @@ export const FlagsQuiz = () => {
       <header className="py-3 border-b">
         <h1 className="text-2xl flex justify-center">Trivia de Banderas</h1>
       </header>
-      {/* <FlagQuizMenu /> */}
-      { displayGame() }
-      { displayGameSummary() }
+      <FlagQuizMenu />
+      {/* { displayGame() }
+      { displayGameSummary() } */}
     </div>
   )
 }

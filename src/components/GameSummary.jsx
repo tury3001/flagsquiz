@@ -1,10 +1,17 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { FaArrowAltCircleLeft, FaShare, FaStar } from "react-icons/fa"
 import { TriviaContext } from "../context";
+import { messageGenerator } from "../helpers/messageGenerator";
 
 export const GameSummary = () => {
 
   const { totalQuestions, score, setRetry } = useContext(TriviaContext);
+  const [ message, setMessage ] = useState('');
+
+  useEffect( () => {
+    const message = messageGenerator(score, totalQuestions);
+    setMessage(message);
+  }, [ score ]);
 
   const onRetry = () => {
     setRetry();
@@ -23,7 +30,7 @@ export const GameSummary = () => {
           <FaStar />
         </div>
         <div className="text-center text-2xl mt-5 mb-5">
-          <span className="text-2xl">Tienes que mejorar</span>
+          <span className="text-2xl">{ message }</span>
         </div>
         <div className="flex flex-col justify-center mt-5 mb-5">
           <button
