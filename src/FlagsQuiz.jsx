@@ -8,6 +8,7 @@ import { Loading } from './ui/Loading';
 import { Trivia } from './components/Trivia';
 import { FlagQuizMenu } from "./components/FlagQuizMenu";
 import { GameSummary } from './components/GameSummary';
+import FlagQuizHome from './components/FlagQuizHome';
 
 const triviaCreator = new TriviaCreator('América', 10);
 const trivia = triviaCreator.getTrivia();
@@ -15,9 +16,10 @@ const trivia = triviaCreator.getTrivia();
 export const FlagsQuiz = () => {
 
   const {
-    score, questionNumber, setCorrectAnswer, options, userAnswer,
-    beginTrivia, increaseQuestionNumber, flag, disableOptions, optionsDisabled, loadNextQuestion,
-    revealSolution, isLoading, isQuestionFinished, isSummary, setGameOver, isGame } = useContext(TriviaContext);
+    score, questionNumber, setCorrectAnswer, options, userAnswer, beginTrivia,
+    increaseQuestionNumber, flag, disableOptions, optionsDisabled, loadNextQuestion,
+    revealSolution, isLoading, isQuestionFinished, isSummary, setGameOver, isGame,
+    isFrontPage, isMenu, setMenu } = useContext(TriviaContext);
 
   useEffect(() => {
     beginTrivia();
@@ -53,6 +55,11 @@ export const FlagsQuiz = () => {
     }
   }
 
+  const onGoToMenu = () => {
+    console.log('vamos al menu');
+    setMenu();
+  }
+
   const displayGame = () => {
     if (isGame && !isSummary) {
       return (
@@ -79,13 +86,13 @@ export const FlagsQuiz = () => {
   }
 
   return (
-    <div className="container mx-auto w-[600px] bg-fqwhite h-5/6 shadow-md border rounded-md border-slate-300 mt-4">
-      <header className="py-3 border-b">
-        <h1 className="text-2xl flex justify-center">Trivia de Banderas</h1>
-      </header>
-      <FlagQuizMenu />
-      {/* { displayGame() }
-      { displayGameSummary() } */}
+    <div className="h-screen flex items-center animate__animated animate__fadeIn">
+      <div className="container mx-auto w-1/2 shadow-lg border rounded-md bg-sky-600 h-4/5">
+        { isFrontPage ? <FlagQuizHome goToMenu={ onGoToMenu } /> : '' }
+        { isMenu ? <FlagQuizMenu  /> : '' }
+        {/* { displayGame() }
+        { displayGameSummary() } */}
+      </div>
     </div>
   )
 }

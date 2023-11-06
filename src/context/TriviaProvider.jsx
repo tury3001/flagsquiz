@@ -20,6 +20,8 @@ const init = () => {
     isQuestionFinished: false,
     isSummary: false,
     isGame: false,
+    isMenu: false,
+    isFrontPage: true,
     totalQuestions: 10
   }
 }
@@ -127,6 +129,14 @@ const [triviaState, dispatch] = useReducer(triviaReducer, {}, init)
     dispatch(action);
   }
 
+  const setMenu = () => {
+    const action = {
+      type: types.setMenu,
+    }
+
+    dispatch(action);
+  }
+
   return (
     <TriviaContext.Provider value={{
       ...triviaState,
@@ -138,7 +148,8 @@ const [triviaState, dispatch] = useReducer(triviaReducer, {}, init)
       revealSolution,
       disableOptions,
       setGameOver,
-      setRetry
+      setRetry,
+      setMenu
     }}>
       { children }
     </TriviaContext.Provider>

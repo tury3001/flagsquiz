@@ -112,6 +112,16 @@ export const triviaReducer = (state = {}, action) => {
       }
     }
 
+    case types.setMenu: {
+      return {
+        ...state,
+        isGame: false,
+        isSummary: false,
+        isFrontPage: false,
+        isMenu: true
+      }        
+    }
+
     default: {
       return state;
     }
