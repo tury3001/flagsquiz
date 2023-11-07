@@ -86,8 +86,8 @@ export const FlagsQuiz = () => {
   }
 
   return (
-    <div className="h-screen flex items-center animate__animated animate__fadeIn">
-      <div className="container mx-auto w-1/2 shadow-lg border rounded-md bg-sky-600 h-4/5">
+    <div className=" h-screen flex items-center animate__animated animate__fadeIn">
+      <div className="mx-auto shadow-lg border rounded-md bg-sky-600 w-[600px] h-[1000px]">
         { isFrontPage ? <FlagQuizHome goToMenu={ onGoToMenu } /> : '' }
         { isMenu ? <FlagQuizMenu  /> : '' }
         {/* { displayGame() }
