@@ -3,19 +3,18 @@ import { shuffleArray } from '../lib/shuffleArray';
 
 export class TriviaCreator {
  
-  constructor(region, qQuestions) {
-    this.region = region;
+  constructor(regions, qQuestions) {
+    this.regions = regions;
     this.qQuestions = qQuestions;
   }
 
   getTrivia() {
     let trivia = [];
     for (let i = 0; i < this.qQuestions; i++) {
-      this.countries = getCountries(this.region);  
+      this.countries = getCountries(this.regions);      
       this.removeCountries(trivia.map( t => t.correctAnswer));
       trivia.push(this.getQuestion());
     }
-
     return trivia;
   }
 

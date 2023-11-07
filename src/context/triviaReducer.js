@@ -8,7 +8,15 @@ export const triviaReducer = (state = {}, action) => {
     }
 
     case types.beginTrivia: {
-      return { ...state, isGame: true }
+      return {
+        ...state,
+        isGame: true,
+        isMenu: false,
+        isFrontPage: false,
+        isSummary: false,
+        regions: [ ...action.payload.regions ],
+        totalQuestions: action.payload.totalQuestions
+      }
     }
 
     case types.setSuccess: {
@@ -120,6 +128,14 @@ export const triviaReducer = (state = {}, action) => {
         isFrontPage: false,
         isMenu: true
       }        
+    }
+
+    case types.setRegions: {
+
+      return {
+        ...state,
+        regions: [ ...state.regions, action.payload ]
+      }
     }
 
     default: {

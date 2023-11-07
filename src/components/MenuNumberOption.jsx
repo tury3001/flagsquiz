@@ -7,7 +7,7 @@ export const MenuNumberOption = ({ title, isActive, onSelectNumber }) => {
   useEffect(() => {
     
   if (isActive) {
-    setActiveStyle('bg-yellow-400');
+    setActiveStyle('outline outline-offset-2 outline-yellow-400');
   } else {
     setActiveStyle('');
   }
@@ -20,7 +20,7 @@ export const MenuNumberOption = ({ title, isActive, onSelectNumber }) => {
 
   return (    
       <div
-        className={ `border border-zinc-300 rounded w-1/4 p-4 text-center mx-2 bg-slate-100 shadow-sm cursor-pointer ${ activeStyle }` }
+        className={ `border border-zinc-300 rounded w-1/4 p-2 text-center mx-2 bg-slate-100 shadow-sm cursor-pointer ${ activeStyle }` }
         onClick={ onSelectNumberOption }
       >
         <span className="text-2xl">{ title }</span>

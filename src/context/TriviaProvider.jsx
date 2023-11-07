@@ -22,7 +22,8 @@ const init = () => {
     isGame: false,
     isMenu: false,
     isFrontPage: true,
-    totalQuestions: 10
+    totalQuestions: 10,
+    regions: []
   }
 }
 
@@ -31,9 +32,11 @@ export const TriviaProvider = ({ children }) => {
 const [triviaState, dispatch] = useReducer(triviaReducer, {}, init)
   const { correctAnswer, options } = triviaState;
 
-  const beginTrivia = () => {
+  const beginTrivia = (regions, selectedNumberQuestions) => {
+
     const action = {
-      type: types.beginTrivia
+      type: types.beginTrivia,
+      payload: { regions, totalQuestions: selectedNumberQuestions }
     }
 
     dispatch(action);
@@ -137,6 +140,15 @@ const [triviaState, dispatch] = useReducer(triviaReducer, {}, init)
     dispatch(action);
   }
 
+  const setRegions = ( region ) => {
+    const action = {
+      type: types.setRegions,
+      payload: region
+    }
+
+    dispatch(action);
+  }
+
   return (
     <TriviaContext.Provider value={{
       ...triviaState,
@@ -149,7 +161,8 @@ const [triviaState, dispatch] = useReducer(triviaReducer, {}, init)
       disableOptions,
       setGameOver,
       setRetry,
-      setMenu
+      setMenu,
+      setRegions
     }}>
       { children }
     </TriviaContext.Provider>

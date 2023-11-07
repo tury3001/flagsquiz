@@ -1,10 +1,12 @@
-export const MenuOption = ({ title, imageUrl }) => {
+export const MenuOption = ({ title, imageUrl, onOptionClicked, isChecked }) => {
   return (
-    <div className="flex items-center text-sm mb-3 border border-zinc-300 rounded py-2 cursor-pointer bg-slate-100 shadow-sm">
-      <div className="ml-5 mr-3 py-6 rounded flex justify-center">
+    <div className="flex items-center text-sm mb-1 border border-zinc-300 rounded py-2 cursor-pointer bg-slate-100 shadow-sm">
+      <div className="ml-5 mr-3 py-4 rounded flex justify-center">
         <input
           type="checkbox"
-          className="w-5 h-5 mr-2 py-2 accent-sky-600 cursor-pointer"
+          className="w-5 h-5 mr-2 py-2 cursor-pointer bg-sky-600 border-sky-200 text-yellow-500 focus:ring-yellow-500 rounded-full"
+          checked={ isChecked }
+          onChange={ () =>  onOptionClicked(title) }
         >    
         </input>
       </div>

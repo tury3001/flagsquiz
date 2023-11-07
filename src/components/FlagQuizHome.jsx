@@ -1,3 +1,5 @@
+import { GameButton } from "../ui/GameButton";
+
 export const FlagQuizHome = ({ goToMenu }) => {
 
   const onGoToMenu = () => {
@@ -17,11 +19,7 @@ export const FlagQuizHome = ({ goToMenu }) => {
         Trivia de Banderas
       </div>
       <div className="flex justify-center mb-10">
-        <button
-          className="text-white bg-sky-600 py-2 px-8 rounded-lg text-xl uppercase border-white border-2 hover:scale-105"
-          onClick={ onGoToMenu }
-        >Comenzar
-        </button>
+        <GameButton label="Comenzar" onClickButton={ onGoToMenu } />
       </div>
     </>
   )

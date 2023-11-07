@@ -26,7 +26,7 @@ export const TriviaOption = ({ id, text, correct, fail, disableInput }) => {
         onClick={ selectAnswer }
       >  
       <div className="flex">
-        <div className="px-4 py-4 mr-4 text-white bg-fqtopo rounded-l-lg flex items-center">
+        <div className="px-4 py-4 mr-4 text-yellow-400 font-bold bg-sky-700 rounded-l-lg flex items-center">
             { id }
         </div>
         <div className="text-2xl py-4">

@@ -11,4 +11,5 @@ export const types = {
   beginTrivia: '[Trivia] Begin Trivia',
   setRetry: '[Trivia] Set Retry',
   setMenu: '[Trivia] Set Menu',
+  setRegions: '[Trivia] Set Regions',
 }
