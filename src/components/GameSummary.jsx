@@ -1,8 +1,8 @@
 import { useContext, useEffect, useState } from "react";
-import { FaArrowAltCircleLeft, FaShare, FaStar } from "react-icons/fa"
 import { TriviaContext } from "../context";
 import { messageGenerator } from "../helpers/messageGenerator";
 import { GameButton } from "../ui/GameButton";
+import { RatingStars } from "../ui/RatingStars";
 
 export const GameSummary = () => {
 
@@ -41,11 +41,7 @@ export const GameSummary = () => {
           </h2>
         </div>
         <div className="flex text-3xl justify-center text-yellow-500 mt-5">
-          <FaStar />
-          <FaStar />
-          <FaStar />
-          <FaStar />
-          <FaStar />
+          <RatingStars rating={ score } total={ totalQuestions } />
         </div>        
         <div className="mt-5 mb-5 text-center flex justify-center">
           <div className="text-2xl w-4/5">{ message }</div>

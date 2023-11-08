@@ -9,7 +9,7 @@ const init = () => {
     flag: '',
     correctAnswer: '',
     questionNumber: 1,
-    score: 0,
+    score: 4,
     answerOk: false,
     success: false,
     fail: false,
