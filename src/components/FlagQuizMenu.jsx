@@ -4,9 +4,11 @@ import { MenuOption } from "./MenuOption"
 import { useState } from "react";
 import { GameButton } from "../ui/GameButton";
 
+const allRegions = ['África', 'Asia', 'América', 'Oceanía', 'Europa'];
+
 export const FlagQuizMenu = ({ onContinue }) => {
 
-  const [ regions, setRegions ] = useState([ 'El mundo entero'] );
+  const [ regions, setRegions ] = useState(allRegions);
   const [ isWorld, setIsWorld ] = useState( true );
   const [ selectedNumberQuestions, setSelectedNumberQuestions ] = useState( null );
   const [ messageRegionError, setMessageRegionError] = useState( false );
@@ -65,7 +67,7 @@ export const FlagQuizMenu = ({ onContinue }) => {
   const onWorldOptionSelected = () => {
     if (isWorld) return
     setIsWorld( state => !state);
-    setRegions(['El mundo entero']);
+    setRegions(allRegions);
     setMessageRegionError(false);
   }
 
