@@ -18,8 +18,9 @@ export const FlagQuizHome = ({ goToMenu }) => {
       <div className="text-white text-center text-5xl py-4 mb-10 mt-5">
         Trivia de Banderas
       </div>
-      <div className="flex justify-center mb-10">
+      <div className="mb-10 flex flex-col items-center">
         <GameButton label="Comenzar" onClickButton={ onGoToMenu } />
+        <GameButton label="Créditos" onClickButton={ onGoToMenu } />
       </div>
     </>
   )

@@ -126,7 +126,10 @@ export const triviaReducer = (state = {}, action) => {
         isGame: false,
         isSummary: false,
         isFrontPage: false,
-        isMenu: true
+        isMenu: true,
+        score: 0,
+        regions: [],
+        totalQuestions: null
       }        
     }
 

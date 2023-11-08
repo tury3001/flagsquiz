@@ -5,7 +5,7 @@ export const Trivia = ({ questionNumber, options, optionsDisabled, flag }) => {
   return (
     <>
       <div className="flex justify-center">
-        <h3 className="uppercase text-xl mb-10">Pregunta { questionNumber }</h3>
+        <h3 className="uppercase text-xl mb-10 text-white">Pregunta { questionNumber }</h3>
       </div>
       <Flag code={ flag }></Flag>
       <TriviaOptions options={ options } disableInput={ optionsDisabled }/>
