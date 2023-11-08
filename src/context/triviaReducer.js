@@ -7,7 +7,7 @@ export const triviaReducer = (state = {}, action) => {
       return { ...state, correctAnswer: action.payload.answer }
     }
 
-    case types.beginTrivia: {
+    case types.beginTrivia: {    
       return {
         ...state,
         isGame: true,
@@ -15,7 +15,7 @@ export const triviaReducer = (state = {}, action) => {
         isFrontPage: false,
         isSummary: false,
         regions: [ ...action.payload.regions ],
-        totalQuestions: action.payload.totalQuestions
+        totalQuestions: action.payload.totalQuestions,
       }
     }
 
@@ -129,7 +129,10 @@ export const triviaReducer = (state = {}, action) => {
         isMenu: true,
         score: 0,
         regions: [],
-        totalQuestions: null
+        totalQuestions: null,
+        isQuestionFinished: false,
+        questionNumber: 1,
+        userAnswer: ''
       }        
     }
 

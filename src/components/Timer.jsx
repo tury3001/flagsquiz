@@ -18,8 +18,6 @@ export const Timer = ({ onFinish, timerStartWatcher, timerStopWatcher = '' }) =>
   }, [ timerStartWatcher ]);
 
   useEffect( () => {
-    console.log('parando el timer: timerStopWatcher');
-    console.log(timerStopWatcher);
     if (timerStopWatcher.length > 0) {
       stopTimer();
     }

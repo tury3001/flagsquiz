@@ -29,7 +29,7 @@ const init = () => {
 
 export const TriviaProvider = ({ children }) => {
 
-const [triviaState, dispatch] = useReducer(triviaReducer, {}, init)
+  const [triviaState, dispatch] = useReducer(triviaReducer, {}, init)
   const { correctAnswer, options } = triviaState;
 
   const beginTrivia = (regions, selectedNumberQuestions) => {

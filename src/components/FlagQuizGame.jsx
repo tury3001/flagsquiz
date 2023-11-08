@@ -20,7 +20,7 @@ export const FlagQuizGame = () => {
     setTimeout( () => revealSolution(), 2000);
   }
 
-  useEffect(() => {
+  useEffect(() => {    
     const triviaCreator = new TriviaCreator(regions, totalQuestions);
     const trivia = triviaCreator.getTrivia();    
     setTrivia(trivia);
@@ -28,7 +28,9 @@ export const FlagQuizGame = () => {
 
   useEffect(() => {
     if (trivia && questionNumber > 0) {
-      if (questionNumber < totalQuestions) {
+      console.log('questionNumber: ' + questionNumber);
+      console.log('totalQuestions: ' + totalQuestions);
+      if (questionNumber <= totalQuestions) {        
         loadNextQuestion(trivia[questionNumber-1].flag, trivia[questionNumber-1].options);
         setCorrectAnswer(trivia[questionNumber-1].correctAnswer);
       } else {
