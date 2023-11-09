@@ -85,30 +85,30 @@ export const FlagQuizMenu = ({ onContinue }) => {
           </h2>
         <div className="grid gap-4 grid-cols-2">
         <MenuOption
-            imageUrl="./src/assets/ui/africa.png"
+            imageUrl="/assets/ui/africa.png"
             title="África"
             onOptionClicked={ onRegionSelected }
-          />
-          <MenuOption
-            imageUrl="./src/assets/ui/america.png"
-            title="América"
-            onOptionClicked={ onRegionSelected }
-          />
-          <MenuOption
-            imageUrl="./src/assets/ui/asia.png"
-            title="Asia"
-            onOptionClicked={ onRegionSelected }
-          />
-          <MenuOption
-            imageUrl="./src/assets/ui/europe.png"
-            title="Europa"
-            onOptionClicked={ onRegionSelected }
-          />
-          <MenuOption
-            imageUrl="./src/assets/ui/australia.png"
-            title="Oceania"
-            onOptionClicked={ onRegionSelected }
-          />
+        />
+        <MenuOption
+          imageUrl="/assets/ui/america.png"
+          title="América"
+          onOptionClicked={ onRegionSelected }
+        />
+        <MenuOption
+          imageUrl="/assets/ui/asia.png"
+          title="Asia"
+          onOptionClicked={ onRegionSelected }
+        />
+        <MenuOption
+          imageUrl="/assets/ui/europe.png"
+          title="Europa"
+          onOptionClicked={ onRegionSelected }
+        />
+        <MenuOption
+          imageUrl="/assets/ui/australia.png"
+          title="Oceania"
+          onOptionClicked={ onRegionSelected }
+        />
         </div>
       </div>   
     )
@@ -119,7 +119,7 @@ export const FlagQuizMenu = ({ onContinue }) => {
       <div>
         <div className="rounded-full">
           <img
-            src="./src/assets/ui/girl-flag.png"
+            src="/assets/ui/girl-flag.png"
             alt="Flag quiz"
             className="object-cover object-center h-40 w-full rounded-t-lg"
           />
@@ -133,13 +133,13 @@ export const FlagQuizMenu = ({ onContinue }) => {
         </div>
         <div className="grid grid-cols-2 gap-4 text-xl">
          <MenuOption
-            imageUrl="./src/assets/ui/earth.png"
+            imageUrl="/assets/ui/earth.png"
             title="El mundo entero"
             isChecked={ isWorld }
             onOptionClicked={ onWorldOptionSelected }
           />
           <MenuOption
-            imageUrl="./src/assets/ui/world-map.png"
+            imageUrl="/assets/ui/world-map.png"
             title="Regiones"
             isChecked={ !isWorld }
             onOptionClicked={ onRegionOptionSelected }

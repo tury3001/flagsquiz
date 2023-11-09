@@ -26,7 +26,7 @@ export const GameSummary = () => {
     <div>
       <div className="rounded-full">
           <img
-            src="src/assets/ui/girl-flag.png"
+            src="/assets/ui/girl-flag.png"
             alt="Flag quiz"
             className="object-cover object-center h-80 w-full rounded-t-lg"
           />
