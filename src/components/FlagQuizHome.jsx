@@ -17,6 +17,7 @@ export const FlagQuizHome = ({ goToMenu }) => {
           />
         </div>      
         <div className="text-white text-center text-5xl py-4 mb-10 flex justify-center">
+          asdasd
           <img
             src="/assets/ui/logo-trivia-banderas.png"
             alt="Trivia de Banderas"
