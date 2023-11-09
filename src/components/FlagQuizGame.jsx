@@ -20,7 +20,7 @@ export const FlagQuizGame = () => {
     setTimeout( () => revealSolution(), 2000);
   }
 
-  useEffect(() => {    
+  useEffect(() => {
     const triviaCreator = new TriviaCreator(regions, totalQuestions);
     const trivia = triviaCreator.getTrivia();    
     setTrivia(trivia);

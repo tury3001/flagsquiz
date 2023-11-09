@@ -11,14 +11,14 @@ export const FlagQuizHome = ({ goToMenu }) => {
       <div>
         <div className="flex justify-center flex-col rounded-t-lg">
           <img
-            src="src/assets/ui/girl-flag.png"
+            src="./src/assets/ui/girl-flag.png"
             alt="Flag quiz"
             className="rounded-t-lg"
           />
         </div>      
         <div className="text-white text-center text-5xl py-4 mb-10 flex justify-center">
           <img
-            src="src/assets/ui/logo-trivia-banderas.png"
+            src="./src/assets/ui/logo-trivia-banderas.png"
             alt="Trivia de Banderas"
             width="90%"
           />
